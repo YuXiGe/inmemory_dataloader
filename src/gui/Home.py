@@ -6,7 +6,7 @@ import requests
 
 st.set_page_config(page_title="Nagasaki Flow Visualizer", layout="wide")
 
-st.title("🌊 長崎街なか回遊促進 - 秘匿演算ダッシュボード")
+st.title("🌊 ダッシュボード")
 
 with st.sidebar:
     st.header("⚙️ 設定")
@@ -35,7 +35,7 @@ data_res = get_secure_data()
 if data_res and data_res.get("status") == "success":
     st.success(f"🔐 {data_res['message']}")
     
-    # 2. 長崎市内のダミー座標にマッピング（デモ用）
+    # 2. 市内のダミー座標にマッピング（デモ用）
     # 本来は演算結果(results_sample)を緯度経度として解釈
     n = data_res["count"]
     df = pd.DataFrame({
