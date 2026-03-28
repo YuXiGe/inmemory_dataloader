@@ -1,0 +1,42 @@
+[workspace]
+name = "quantum-twins-dev"
+authors = ["yukishige.kawaguchi"]
+channels = ["nvidia", "https://conda.modular.com/max", "conda-forge"]
+platforms = ["linux-64"]
+
+[dependencies]
+cuda-nvcc = "11.8.*"
+cuda-cudart = "11.8.*"
+cuda-cudart-dev = "11.8.*"
+cuda-version = "11.8.*"
+cuda-libraries-dev = "11.8.*"
+cuda-toolkit = "11.8.*"
+gcc_linux-64 = "11.*"
+gxx_linux-64 = "11.*"
+python = "3.11.*"
+fastapi = ">=0.135.2,<0.136"
+uvicorn = ">=0.42.0,<0.43"
+numpy = ">=2.4.3,<3"
+streamlit = ">=1.55.0,<2"
+requests = ">=2.32.5,<3"
+pandas = ">=2.3.3,<3"
+pydeck = ">=0.9.1,<0.10"
+matplotlib = ">=3.10.8,<4"
+h5py = ">=3.15.1,<4"
+pygeohash = ">=1.2.0,<2"
+pytest = ">=9.0.2,<10"
+httpx = ">=0.28.1,<0.29"
+plotly = ">=6.6.0,<7"
+duckdb = ">=1.5.0,<2"
+rasterio = ">=1.4.4,<2"
+opencv = ">=4.13.0,<5"
+keplergl = ">=0.3.2,<0.4"
+setuptools = ">=82.0.1,<83"
+
+[tasks]
+build-secure-loader = "x86_64-conda-linux-gnu-g++ -O3 -shared -fPIC -o src/core/secure_loader.so src/core/secure_loader.cpp"
+start-api = "uvicorn src.api.main:app --host 0.0.0.0 --port 8000 --reload"
+run-gui = "streamlit run src/gui/Home.py"
+
+[system-requirements]
+cuda = "11.8"

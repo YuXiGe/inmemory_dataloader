@@ -1,0 +1,23 @@
+# Pixi environments
+.pixi/
+pixi.lock
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Compiled C++ / Shared Libraries
+*.so
+*.o
+src/core/secure_loader.so
+
+# Data / Generated files (Do not commit sensitive or dummy data)
+*.bin
+nagasaki_sample.bin
+nagasaki_flow_data.bin
+
+# OS generated files
+.DS_Store
+Thumbs.db
